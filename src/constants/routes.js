@@ -2,12 +2,16 @@ const SIGN_IN = {
   INDEX: "/",
 };
 
+const USER_DASHBOARD = {
+  INDEX: "/dashboard",
+};
+
 const CREATE_NEW_ACCOUNT = {
   INDEX: "/create-new-account",
 };
 
-const DEPOSIT_AMOUNT = {
-  INDEX: "/deposit-amount",
+const DEPOSIT_FORM = {
+  INDEX: "/deposit-form",
 };
 
 const WITHDRAW_AMOUNT = {
@@ -21,7 +25,8 @@ const BANK_BALANCE_INQUIRY = {
 export {
   SIGN_IN,
   CREATE_NEW_ACCOUNT,
-  DEPOSIT_AMOUNT,
+  USER_DASHBOARD,
+  DEPOSIT_FORM,
   WITHDRAW_AMOUNT,
   BANK_BALANCE_INQUIRY,
 };
