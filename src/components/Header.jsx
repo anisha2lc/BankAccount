@@ -16,15 +16,15 @@ const Header = () => {
 
   return (
     <>
-      <Navbar className="flex  border-b-2 h-[65px] items-center">
+      <Navbar className="flex sticky top-0 border-b-2 h-[65px] items-center">
         <Link
           to={"/"}
           className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
         >
           <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 via-green-400 to-pink-500 rounded-lg text-white">
-            Banking
+            OnePoint
           </span>
-          <span className=" pl-1">App</span>
+          <span className=" pl-1">Banking</span>
         </Link>
 
         <div className="flex gap-2 md:order-2">

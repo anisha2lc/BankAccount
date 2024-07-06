@@ -7,55 +7,54 @@ import {
   HiChartPie,
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-// import { stateContext } from '../Context/BlogContext';
-import { FaComment, FaInfoCircle, FaUsers } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { signOutUser } from "../redux/userSlice";
+import { FaUsers } from "react-icons/fa";
+import { PiHandDepositBold } from "react-icons/pi";
+import { BiMoneyWithdraw } from "react-icons/bi";
 
 const DashboardSidebar = ({ tab }) => {
+  const dispatch = useDispatch();
   return (
     <>
-      <Sidebar className="w-full md:w-56  h-screen rounded-none">
+      <Sidebar className="w-full md:w-56  md:min-h-screen rounded-none">
         <Sidebar.Items>
           <Sidebar.ItemGroup className="cursor-pointer flex flex-col justify-start gap-1">
-            <Link to={"/dashboard?tab=profile"}>
-              <Sidebar.Item
-                active={tab === "profile"}
-                icon={HiUser}
-                label={"User"}
-                labelColor="dark"
-                as="div"
-              >
-                Profile
-              </Sidebar.Item>
-            </Link>
-
             <>
-              <Link to={"/dashboard?tab=dash"}>
+              <Link to={"/dashboard?tab=details"}>
                 <Sidebar.Item
-                  active={tab === "dash"}
+                  active={tab === "details"}
                   icon={HiChartPie}
                   as="div"
+                  label="current"
                 >
                   Dashboard
                 </Sidebar.Item>
               </Link>
-              <Link to={"/dashboard?tab=posts"}>
+              <Link to={"/dashboard?tab=withdraw"}>
                 <Sidebar.Item
-                  active={tab === "posts"}
-                  icon={HiDocumentText}
+                  active={tab === "withdraw"}
+                  icon={BiMoneyWithdraw}
                   as="div"
                 >
-                  Posts
+                  WithDraw
                 </Sidebar.Item>
               </Link>
-              <Link to={"/dashboard?tab=users"}>
-                <Sidebar.Item active={tab === "users"} icon={FaUsers} as="div">
-                  Users
+              <Link to={"/dashboard?tab=deposit"}>
+                <Sidebar.Item
+                  active={tab === "deposit"}
+                  icon={PiHandDepositBold}
+                  as="div"
+                >
+                  Deposit
                 </Sidebar.Item>
               </Link>
             </>
 
-            <Sidebar.Item icon={HiArrowSmRight}>
+            <Sidebar.Item
+              icon={HiArrowSmRight}
+              onClick={() => dispatch(signOutUser())}
+            >
               <span> Sign Out</span>
             </Sidebar.Item>
           </Sidebar.ItemGroup>

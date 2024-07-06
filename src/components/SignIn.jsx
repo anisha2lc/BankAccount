@@ -28,7 +28,7 @@ const SignIn = () => {
     const validPassword = await bcrypt.compare(password, userData.password);
     if (validPassword) {
       dispatch(signInUser(userData));
-      navigate(USER_DASHBOARD.INDEX, { state: values.email });
+      navigate("/dashboard?tab=details", { state: values.email });
     } else {
       setMessage("Invalid Credentials");
       return;
@@ -51,7 +51,7 @@ const SignIn = () => {
     return errors;
   };
   if (currentUser) {
-    return <Navigate to={USER_DASHBOARD.INDEX} />;
+    return <Navigate to={"/dashboard?tab=details"} />;
   } else {
     return (
       <Form
@@ -60,12 +60,14 @@ const SignIn = () => {
         render={({ handleSubmit, pristine, invalid }) => (
           <form
             onSubmit={handleSubmit}
-            className="max-w-md mx-auto mt-10 p-6 border dark:text-gray-700 border-gray-300 rounded-lg shadow-md"
+            className="max-w-md mx-auto mt-10 p-6 border-2 border-blue-500 dark:text-gray-300 dark:border-gray-300 rounded-lg shadow-xl"
           >
             <h2 className=" text-2xl font-bold">Log In</h2>
             {message && <Alert color={"failure"}>{message}</Alert>}
             <div className="mb-4">
-              <label className="block text-gray-700">Email</label>
+              <label className="block  text-gray-700 dark:text-gray-300">
+                Email
+              </label>
               <Field name="email">
                 {({ input, meta }) => (
                   <div>
@@ -73,7 +75,7 @@ const SignIn = () => {
                       {...input}
                       type="email"
                       placeholder="Email"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:border-blue-500"
                     />
                     {meta.error && meta.touched && (
                       <span className="text-red-500 text-sm">{meta.error}</span>
@@ -83,7 +85,9 @@ const SignIn = () => {
               </Field>
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700">Password</label>
+              <label className="block text-gray-700 dark:text-gray-300">
+                Password
+              </label>
               <Field name="password">
                 {({ input, meta }) => (
                   <div>
@@ -91,7 +95,7 @@ const SignIn = () => {
                       {...input}
                       type="password"
                       placeholder="Password"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:border-blue-500"
                     />
                     {meta.error && meta.touched && (
                       <span className="text-red-500 text-sm">{meta.error}</span>
@@ -102,7 +106,7 @@ const SignIn = () => {
             </div>
             <button
               type="submit"
-              className={`w-full py-2 px-4 bg-blue-500 text-black rounded-md focus:outline-none hover:bg-blue-600 ${
+              className={`w-full py-2 px-4 bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600 ${
                 pristine || invalid ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={pristine || invalid}
@@ -110,7 +114,7 @@ const SignIn = () => {
               Sign In
             </button>
             <div className="mt-4">
-              <p className="text-gray-700">New User?</p>
+              <p className="text-white">New User?</p>
               <Link
                 to={CREATE_NEW_ACCOUNT.INDEX}
                 className="text-blue-500 hover:underline"
