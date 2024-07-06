@@ -25,6 +25,9 @@ const SignIn = () => {
       return user.email === email;
     });
 
+    if (!userData) {
+      return setMessage("User doesn't exist.");
+    }
     const validPassword = await bcrypt.compare(password, userData.password);
     if (validPassword) {
       dispatch(signInUser(userData));
@@ -63,7 +66,11 @@ const SignIn = () => {
             className="max-w-md mx-auto mt-10 p-6 border-2 border-blue-500 dark:text-gray-300 dark:border-gray-300 rounded-lg shadow-xl"
           >
             <h2 className=" text-2xl font-bold">Log In</h2>
-            {message && <Alert color={"failure"}>{message}</Alert>}
+            {message && (
+              <Alert color={"failure"} className=" my-3">
+                {message}
+              </Alert>
+            )}
             <div className="mb-4">
               <label className="block  text-gray-700 dark:text-gray-300">
                 Email

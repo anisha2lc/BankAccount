@@ -61,8 +61,8 @@ const Header = () => {
                     {currentUser.email}
                   </span>
                 </Dropdown.Header>
-                <Link to={"/dashboard?tab=profile"}>
-                  <DropdownItem>Profile</DropdownItem>
+                <Link to={"/dashboard?tab=details"}>
+                  <DropdownItem>Balance Details</DropdownItem>
                 </Link>
                 <Dropdown.Divider />
                 <DropdownItem onClick={() => dispatch(signOutUser())}>

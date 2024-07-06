@@ -60,7 +60,7 @@ const WithdrawAmount = () => {
                 Current Balance
               </label>
               <div className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-100 text-gray-700">
-                <p className=" flex gap-1 items-center cursor-pointer justify-between">
+                <p className=" flex gap-1 items-center cursor-pointer">
                   <ToggleBalance />
                 </p>
               </div>

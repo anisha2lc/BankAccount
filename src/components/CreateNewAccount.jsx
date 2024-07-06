@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Form, Field } from "react-final-form";
 import { Navigate, useNavigate } from "react-router-dom";
-import { DEPOSIT_FORM, SIGN_IN, USER_DASHBOARD } from "../constants/routes";
+import { SIGN_IN, USER_DASHBOARD } from "../constants/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { storeUsers } from "../redux/userSlice";
 import { Alert } from "flowbite-react";
 import bcrypt from "bcryptjs";
+
 const AccountCreation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const AccountCreation = () => {
   const { users, currentUser } = useSelector((state) => state.user);
 
   console.log(users);
+
   const onSubmit = async (values) => {
     if (users.length === 0) {
       const hashedPassword = await bcrypt.hash(values.password, 10);
@@ -20,9 +22,7 @@ const AccountCreation = () => {
       dispatch(storeUsers(values));
       navigate(SIGN_IN.INDEX);
     } else {
-      const userExist = users.find((user) => {
-        return values.email === user.email;
-      });
+      const userExist = users.find((user) => values.email === user.email);
 
       if (userExist) {
         setMessage("User's e-mail already exists");
@@ -46,6 +46,14 @@ const AccountCreation = () => {
     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
       errors.email = "Invalid email address";
     }
+    if (!values.password) {
+      errors.password = "Required";
+    }
+    if (!values.confirmPassword) {
+      errors.confirmPassword = "Required";
+    } else if (values.password !== values.confirmPassword) {
+      errors.confirmPassword = "Passwords must match";
+    }
     if (!values.deposit) {
       errors.deposit = "Required";
     } else if (isNaN(values.deposit) || Number(values.deposit) <= 0) {
@@ -64,7 +72,7 @@ const AccountCreation = () => {
     return <Navigate to={USER_DASHBOARD.INDEX} />;
   } else {
     return (
-      <div className="flex p-3 items-center justify-center  min-h-screen w-full text-gray-700 dark:text-gray-200">
+      <div className="flex p-3 items-center justify-center min-h-screen w-full text-gray-700 dark:text-gray-200">
         <Form
           onSubmit={onSubmit}
           validate={validate}
@@ -137,6 +145,28 @@ const AccountCreation = () => {
                   )}
                 </Field>
               </div>
+              <div className="mb-4">
+                <label className="block text-sm font-bold mb-2">
+                  Confirm Password
+                </label>
+                <Field name="confirmPassword">
+                  {({ input, meta }) => (
+                    <div>
+                      <input
+                        {...input}
+                        type="password"
+                        placeholder="Confirm Password"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-gray-700"
+                      />
+                      {meta.error && meta.touched && (
+                        <span className="text-red-500 text-xs">
+                          {meta.error}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </Field>
+              </div>
               <div className="mb-6">
                 <label className="block text-sm font-bold mb-2">
                   Initial Deposit
@@ -175,4 +205,5 @@ const AccountCreation = () => {
     );
   }
 };
+
 export default AccountCreation;

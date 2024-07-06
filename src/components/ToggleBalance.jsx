@@ -3,27 +3,40 @@ import { HiEye } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { HiEyeSlash } from "react-icons/hi2";
 
-const ToggleBalance = () => {
+const ToggleBalance = ({ interest }) => {
   const [toggleBalance, setToggleBalance] = useState(false);
   const { currentUser } = useSelector((state) => state.user);
+
+  const calculateInterestAmount = () => {
+    return 0.04 * Number(currentUser.totalbalance);
+  };
+
   return (
     <>
-      {toggleBalance ? (
+      {toggleBalance && interest ? (
+        <div className="flex gap-1 items-center">
+          <span>NPR. {calculateInterestAmount()}</span>
+          <HiEyeSlash
+            onClick={() => setToggleBalance(false)}
+            className="cursor-pointer"
+          />
+        </div>
+      ) : toggleBalance ? (
         <>
-          <span>NPR. {currentUser.totalbalance}</span>
+          <span>NRP. {currentUser.totalbalance}</span>
           <HiEyeSlash
             onClick={() => setToggleBalance(false)}
             className="cursor-pointer"
           />
         </>
       ) : (
-        <>
+        <div className="flex gap-1 items-center">
           <span>XXX.X</span>
           <HiEye
             onClick={() => setToggleBalance(true)}
             className="cursor-pointer"
           />
-        </>
+        </div>
       )}
     </>
   );
