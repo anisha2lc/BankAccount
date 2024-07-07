@@ -25,7 +25,7 @@ There is deposit page where users can withdraw amount, with validation against t
    ```md
    git clone https://github.com/anisha2lc/Banking-App.git for https.
 
-   git clone [git@github.com:anisha2lc/Banking-App.git](git@github.com:anisha2lc/Banking-App.git) for ssh.
+   git clone "git@github.com:anisha2lc/Banking-App.git" for ssh.
    
    ```
 
