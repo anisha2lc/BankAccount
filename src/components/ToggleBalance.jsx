@@ -8,7 +8,11 @@ const ToggleBalance = ({ interest }) => {
   const { currentUser } = useSelector((state) => state.user);
 
   const calculateInterestAmount = () => {
-    return 0.04 * Number(currentUser.totalbalance);
+    const interestRate = 0.04;
+    const totalBalance = Number(currentUser.totalbalance);
+    const interestAmount = interestRate * totalBalance;
+
+    return Number(interestAmount.toFixed(2));
   };
 
   return (

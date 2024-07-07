@@ -2,6 +2,21 @@
 
 This application simulates a basic banking system which uses localstorage for storing data. It allows users to view their account balance, and perform deposit and withdrawal transactions. The main purpose of the app is to provide a simple and user-friendly interface for managing a bank account.
 
+### Account Creation
+Allows users to create a new bank account with their name, email, and initial deposit. To create the acc
+
+### Sign In
+Allows users to enter the app after validating the credentials.
+
+### Deposit
+Users can deposit funds into their account.
+
+### Withdrawal
+Users can withdraw amount, with validation against their current balance.
+
+### Balance Inquiry
+Displays the current account balance in the dashboard after user sign in to the app.
+
 ## How can we install the application? - Step by Step Guide
 
 1. Clone using the following repo link
@@ -46,9 +61,11 @@ Make sure to clear you localstorage if any redux data is already present.
 - **React:** For building dynamic user interfaces.
 - **Redux toolkit:** For storing and persisting data in local storage. 
 - **Routing:** Utilize react-router-dom for navigation.
+- **Axios:** For fetching data from API
 - **Styling:** Tailwind ensures responsive designs.
 - **Icons:** Integrate React-Icon for customizable icons.
 - **Linting & Formatting:** eslint.
 - **CSS Enhancement:** Leverage Sass for powerful styling.
 - **bcryptjs:** For hashing the password.
 - **qrcode.react:** For qr generation.
+

@@ -1,15 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Sidebar } from "flowbite-react";
-import {
-  HiArrowSmRight,
-  HiUser,
-  HiDocumentText,
-  HiChartPie,
-} from "react-icons/hi";
+import { HiArrowSmRight, HiChartPie, HiNewspaper } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signOutUser } from "../redux/userSlice";
-import { FaUsers } from "react-icons/fa";
 import { PiHandDepositBold } from "react-icons/pi";
 import { BiMoneyWithdraw } from "react-icons/bi";
 
@@ -47,6 +41,16 @@ const DashboardSidebar = ({ tab }) => {
                   as="div"
                 >
                   Deposit
+                </Sidebar.Item>
+              </Link>
+
+              <Link to={"/dashboard?tab=news"}>
+                <Sidebar.Item
+                  active={tab === "news"}
+                  icon={HiNewspaper}
+                  as="div"
+                >
+                  News
                 </Sidebar.Item>
               </Link>
             </>

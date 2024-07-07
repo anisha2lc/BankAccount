@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Field } from "react-final-form";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { SIGN_IN, USER_DASHBOARD } from "../constants/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { storeUsers } from "../redux/userSlice";
@@ -197,6 +197,15 @@ const AccountCreation = () => {
                 >
                   Create Account
                 </button>
+              </div>
+              <div className="mt-4">
+                <p className="dark:text-white">Already has an account?</p>
+                <Link
+                  to={SIGN_IN.INDEX}
+                  className="text-blue-500 hover:underline"
+                >
+                  Sign in
+                </Link>
               </div>
             </form>
           )}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button, Dropdown, DropdownItem, Navbar } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa6";

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { amountWithDraw } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useErrorBoundary } from "react-error-boundary";
 import ToggleBalance from "./ToggleBalance";
 
 const WithdrawAmount = () => {
@@ -12,9 +11,10 @@ const WithdrawAmount = () => {
   const { theme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const validate = (values) => {
     const errors = {};
-    console.log(values.withdraw <= currentUser.totalbalance, "heyy");
+
     if (!values.withdraw) {
       errors.withdraw = "Withdraw amount is required";
     } else if (values.withdraw >= currentUser.totalbalance) {

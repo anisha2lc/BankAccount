@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { Form, Field } from "react-final-form";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import {
-  CREATE_NEW_ACCOUNT,
-  DEPOSIT_FORM,
-  USER_DASHBOARD,
-} from "../constants/routes";
+import { CREATE_NEW_ACCOUNT } from "../constants/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "flowbite-react";
 import { signInUser } from "../redux/userSlice";
@@ -121,7 +117,7 @@ const SignIn = () => {
               Sign In
             </button>
             <div className="mt-4">
-              <p className="text-white">New User?</p>
+              <p className="dark:text-white">New User?</p>
               <Link
                 to={CREATE_NEW_ACCOUNT.INDEX}
                 className="text-blue-500 hover:underline"
