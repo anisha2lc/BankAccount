@@ -7,7 +7,7 @@ const LatestNews = () => {
   const fetchNewsData = async () => {
     try {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=bank&from=2024-06-06&sortBy=publishedAt&apiKey=d156bcc19a1043c79cc34a49a37b9c12`,
+        `https://saurav.tech/NewsAPI/top-headlines/category/business/in.json`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -15,6 +15,7 @@ const LatestNews = () => {
         }
       );
 
+      console.log(response);
       setNews(response.data.articles);
     } catch (error) {
       console.log(error);
@@ -42,7 +43,9 @@ const LatestNews = () => {
               alt={article.title}
             />
             <div className="p-4">
-              <h2 className="text-lg font-bold mb-2">{article.title}</h2>
+              <h2 className="text-lg font-bold mb-2 text-gray-700">
+                {article.title}
+              </h2>
               <p className="text-sm text-gray-700 mb-4">
                 {article.description}
               </p>
