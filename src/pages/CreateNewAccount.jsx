@@ -47,6 +47,9 @@ const AccountCreation = () => {
     if (!values.password) {
       errors.password = "Required";
     }
+    if (!/^.{5}$/.test(values.password)) {
+      errors.password = "At least 5 characters required";
+    }
     if (!values.confirmPassword) {
       errors.confirmPassword = "Required";
     } else if (values.password !== values.confirmPassword) {

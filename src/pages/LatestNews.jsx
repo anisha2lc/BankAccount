@@ -9,6 +9,8 @@ const LatestNews = () => {
       const response = await axios.get(
         `https://newsapi.org/v2/everything?q=bank&from=2024-06-06&sortBy=publishedAt&apiKey=${
           import.meta.env.VITE_API_URL
+            ? import.meta.env.VITE_API_URL
+            : "d156bcc19a1043c79cc34a49a37b9c12"
         }`,
         {
           headers: {
