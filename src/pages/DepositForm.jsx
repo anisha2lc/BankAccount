@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { depositAmount } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import ToggleBalance from "./ToggleBalance";
+import ToggleBalance from "../components/ToggleBalance";
 
 const DepositComponent = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -23,10 +23,9 @@ const DepositComponent = () => {
   };
 
   const onSubmit = (values) => {
-    console.log("Form Submitted", values);
     const { deposit } = values;
 
-    if (deposit === 999) {
+    if (deposit <= 0) {
       throw new Error("Error processing deposit: Amount not allowed");
     }
 

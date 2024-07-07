@@ -1,3 +1,5 @@
+// Stores the user data and currentuser
+
 import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
 const initialState = {

@@ -1,3 +1,5 @@
+// Stores the theme of the app
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

@@ -1,6 +1,6 @@
 # Banking App
 
-This application simulates a basic banking system which uses localstorage for storing data. It allows users to view their account balance, and perform deposit and withdrawal transactions. The main purpose of the app is to provide a simple and user-friendly interface for managing a bank account.
+This application simulates a basic banking system which uses localstorage for storing data. It allows users to view their account balance, and perform deposit and withdrawal transactions. The main purpose of the app is to provide a simple and user-friendly interface for managing a bank account. The application is successfully setup for testing using jest and react-testing-library.
 
 ### Account Creation
 Allows users to create a new bank account with their name, email, and initial deposit. To create the acc
@@ -61,11 +61,13 @@ Make sure to clear you localstorage if any redux data is already present.
 - **React:** For building dynamic user interfaces.
 - **Redux toolkit:** For storing and persisting data in local storage. 
 - **Routing:** Utilize react-router-dom for navigation.
-- **Axios:** For fetching data from API
+- **Axios:** For fetching data from API.
+- **Jest:** For testing.
 - **Styling:** Tailwind ensures responsive designs.
 - **Icons:** Integrate React-Icon for customizable icons.
 - **Linting & Formatting:** eslint.
 - **CSS Enhancement:** Leverage Sass for powerful styling.
 - **bcryptjs:** For hashing the password.
 - **qrcode.react:** For qr generation.
+
 

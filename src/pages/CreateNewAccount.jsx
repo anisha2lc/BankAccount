@@ -13,8 +13,6 @@ const AccountCreation = () => {
   const [message, setMessage] = useState(null);
   const { users, currentUser } = useSelector((state) => state.user);
 
-  console.log(users);
-
   const onSubmit = async (values) => {
     if (users.length === 0) {
       const hashedPassword = await bcrypt.hash(values.password, 10);

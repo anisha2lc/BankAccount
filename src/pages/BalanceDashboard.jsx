@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import DashboardSidebar from "./DashboardSidebar";
+import DashboardSidebar from "../components/DashboardSidebar";
 import { useSelector } from "react-redux";
 import DepositForm from "./DepositForm";
-import WithdrawAmount from "./WithdrawAmount";
-import ToggleBalance from "./ToggleBalance";
+import WithdrawAmount from "../components/WithdrawAmount";
+import ToggleBalance from "../components/ToggleBalance";
 import { QRCodeSVG } from "qrcode.react";
 import LatestNews from "./LatestNews";
 import { FaWallet, FaTicketAlt, FaFilm, FaCreditCard } from "react-icons/fa";

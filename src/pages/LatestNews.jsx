@@ -5,7 +5,6 @@ const LatestNews = () => {
   const [news, setNews] = useState([]);
   const [visibleArticles, setVisibleArticles] = useState(6);
   const fetchNewsData = async () => {
-    console.log(import.meta.env.VITE_API_URL);
     try {
       const response = await axios.get(
         `https://newsapi.org/v2/everything?q=bank&from=2024-06-06&sortBy=publishedAt&apiKey=${
@@ -23,7 +22,6 @@ const LatestNews = () => {
       console.log(error);
     }
   };
-  console.log(news);
   useEffect(() => {
     fetchNewsData();
   }, []);

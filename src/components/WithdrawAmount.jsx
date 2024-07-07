@@ -42,7 +42,6 @@ const WithdrawAmount = () => {
       navigate("/dashboard?tab=details");
     } catch (error) {
       console.error("Error processing deposit:", error);
-      console.log(error);
       throw new Error("Error processing deposit: " + error.message);
     }
   };
